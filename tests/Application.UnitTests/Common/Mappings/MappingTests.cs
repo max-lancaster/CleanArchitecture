@@ -48,9 +48,6 @@ public class MappingTests
             return Activator.CreateInstance(type)!;
 
         // Type without parameterless constructor
-        // TODO: Figure out an alternative approach to the now obsolete `FormatterServices.GetUninitializedObject` method.
-#pragma warning disable SYSLIB0050 // Type or member is obsolete
-        return FormatterServices.GetUninitializedObject(type);
-#pragma warning restore SYSLIB0050 // Type or member is obsolete
+        return RuntimeHelpers.GetUninitializedObject(type);
     }
 }
